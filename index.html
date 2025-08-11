@@ -14,9 +14,9 @@
 <body class="font-inter bg-gray-50">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full glass-effect backdrop-blur-md z-50">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center py-4">
-                <h1 class="text-2xl font-poppins font-bold gradient-text">Ignacio's Portfolio</h1>
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center py-3 md:py-4">
+                <h1 class="text-lg md:text-2xl font-poppins font-bold gradient-text">Ignacio's Portfolio</h1>
                 <!-- Desktop Navigation -->
                 <ul class="hidden md:flex space-x-8">
                     <li><a href="#home" class="text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold hover:scale-105 drop-shadow-sm">Home</a></li>
@@ -26,35 +26,40 @@
                     <li><a href="#contact" class="text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold hover:scale-105 drop-shadow-sm">Contact</a></li>
                 </ul>
                 
-                <!-- Mobile Navigation -->
-                <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+                <!-- Mobile Navigation Menu -->
+                <div id="mobile-menu" class="fixed top-0 left-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
                     <div class="flex flex-col h-full">
-                        <div class="flex justify-between items-center p-6 border-b border-gray-200">
-                            <h2 class="text-xl font-poppins font-bold gradient-text">Menu</h2>
+                        <div class="flex justify-between items-center p-4 border-b border-gray-200">
+                            <h2 class="text-lg font-poppins font-bold gradient-text">Navigation</h2>
                             <button id="close-mobile-menu" class="hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-times text-gray-800 text-xl"></i>
+                                <i class="fas fa-times text-gray-600 text-lg"></i>
                             </button>
                         </div>
-                        <nav class="flex-1 px-6 py-8">
-                            <ul class="space-y-6">
-                                <li><a href="#home" class="mobile-nav-link block text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold text-lg py-3 border-b border-gray-100">Home</a></li>
-                                <li><a href="#about" class="mobile-nav-link block text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold text-lg py-3 border-b border-gray-100">About</a></li>
-                                <li><a href="#skills" class="mobile-nav-link block text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold text-lg py-3 border-b border-gray-100">Skills</a></li>
-                                <li><a href="#certifications" class="mobile-nav-link block text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold text-lg py-3 border-b border-gray-100">Certifications</a></li>
-                                <li><a href="#contact" class="mobile-nav-link block text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold text-lg py-3 border-b border-gray-100">Contact</a></li>
+                        <nav class="flex-1 py-4">
+                            <ul class="space-y-2">
+                                <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                                <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
+                                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <button class="md:hidden hover:scale-110 transition-transform duration-300" id="mobile-menu-btn">
-                    <i class="fas fa-bars text-gray-800 text-xl drop-shadow-sm"></i>
+                
+                <!-- Mobile Menu Overlay -->
+                <div id="mobile-menu-overlay" class="fixed inset-0 z-40 md:hidden"></div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden transition-transform duration-300" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-20 md:pt-0">
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-24 md:pt-20">
         <div class="container mx-auto px-6 text-center relative z-10">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8">
@@ -403,27 +408,27 @@
                 </div>
                 <div class="contact-grid grid lg:grid-cols-2 gap-8 md:gap-12">
                     <!-- Contact Form -->
-                    <div class="hover-lift bg-white rounded-3xl p-10 shadow-xl border border-gray-100">
-                        <div class="text-center mb-8">
-                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-paper-plane text-2xl text-white"></i>
+                    <div class="hover-lift bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-gray-100">
+                        <div class="text-center mb-6 md:mb-8">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                <i class="fas fa-paper-plane text-xl md:text-2xl text-white"></i>
                             </div>
-                            <h3 class="font-poppins text-2xl font-bold text-gray-800">Send a Message</h3>
+                            <h3 class="font-poppins text-xl md:text-2xl font-bold text-gray-800">Send a Message</h3>
                         </div>
-                        <form class="space-y-6">
+                        <form class="space-y-4 md:space-y-6" id="contact-form" method="POST" action="send-email.php">
                             <div>
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                                <input type="text" id="name" name="name" class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-green-500" placeholder="Enter your full name" required>
+                                <label for="name" class="block text-gray-700 font-medium mb-2 text-sm md:text-base">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500 focus:ring-opacity-20 transition-all duration-300 text-sm md:text-base" placeholder="Enter your full name" required>
                             </div>
                             <div>
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-green-500" placeholder="your.email@example.com" required>
+                                <label for="email" class="block text-gray-700 font-medium mb-2 text-sm md:text-base">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500 focus:ring-opacity-20 transition-all duration-300 text-sm md:text-base" placeholder="your.email@example.com" required>
                             </div>
                             <div>
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5" class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-green-500 resize-none" placeholder="Tell me about your project or idea..." required></textarea>
+                                <label for="message" class="block text-gray-700 font-medium mb-2 text-sm md:text-base">Message</label>
+                                <textarea id="message" name="message" rows="4" class="form-input w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500 focus:ring-opacity-20 resize-none transition-all duration-300 text-sm md:text-base min-h-[100px] md:min-h-[120px]" placeholder="Tell me about your project or idea..." required></textarea>
                             </div>
-                            <button type="submit" class="btn-primary text-white py-4 px-8 rounded-xl font-semibold text-lg hover-lift w-full inline-flex items-center justify-center">
+                            <button type="submit" class="btn-primary text-white py-3 md:py-4 px-6 md:px-8 rounded-xl font-semibold text-base md:text-lg hover-lift w-full inline-flex items-center justify-center transition-all duration-300">
                                 <i class="fas fa-rocket mr-2"></i>
                                 Send Message
                             </button>
@@ -431,68 +436,68 @@
                     </div>
 
                     <!-- Contact Info -->
-                    <div class="space-y-8">
-                        <div class="hover-lift bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                            <div class="text-center mb-8">
-                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                    <i class="fas fa-address-card text-2xl text-white"></i>
+                    <div class="space-y-6 md:space-y-8">
+                        <div class="hover-lift bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                            <div class="text-center mb-6 md:mb-8">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                    <i class="fas fa-address-card text-xl md:text-2xl text-white"></i>
                                 </div>
-                                <h3 class="font-poppins text-2xl font-bold text-gray-800">Contact Details</h3>
+                                <h3 class="font-poppins text-xl md:text-2xl font-bold text-gray-800">Contact Details</h3>
                             </div>
-                            <div class="space-y-6">
-                                <div class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-envelope text-white"></i>
+                            <div class="space-y-4 md:space-y-6">
+                                <div class="flex items-center p-3 md:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
+                                    <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope text-white text-sm md:text-base"></i>
                                     </div>
-                                    <div>
-                                        <p class="text-sm text-gray-500 font-medium">Email</p>
-                                        <p class="text-gray-800 font-semibold">samuelbonadoignacio19@gmail.com</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-phone text-white"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm text-gray-500 font-medium">Phone</p>
-                                        <p class="text-gray-800 font-semibold">+63 (960) 511-2481</p>
+                                    <div class="min-w-0">
+                                        <p class="text-xs md:text-sm text-gray-500 font-medium">Email</p>
+                                        <p class="text-gray-800 font-semibold text-sm md:text-base break-all">samuelbonadoignacio19@gmail.com</p>
                                     </div>
                                 </div>
-                                <div class="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                <div class="flex items-center p-3 md:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
+                                    <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone text-white text-sm md:text-base"></i>
                                     </div>
                                     <div>
-                                        <p class="text-sm text-gray-500 font-medium">Location</p>
-                                        <p class="text-gray-800 font-semibold">Philippines</p>
+                                        <p class="text-xs md:text-sm text-gray-500 font-medium">Phone</p>
+                                        <p class="text-gray-800 font-semibold text-sm md:text-base">+63 (960) 511-2481</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-3 md:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-300">
+                                    <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-white text-sm md:text-base"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs md:text-sm text-gray-500 font-medium">Location</p>
+                                        <p class="text-gray-800 font-semibold text-sm md:text-base">Philippines</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="hover-lift bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                            <div class="text-center mb-8">
-                                <div class="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                    <i class="fas fa-share-alt text-2xl text-white"></i>
+                        <div class="hover-lift bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
+                            <div class="text-center mb-6 md:mb-8">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-600 to-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                    <i class="fas fa-share-alt text-xl md:text-2xl text-white"></i>
                                 </div>
-                                <h3 class="font-poppins text-2xl font-bold text-gray-800">Social Media</h3>
+                                <h3 class="font-poppins text-xl md:text-2xl font-bold text-gray-800">Social Media</h3>
                             </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <a href="#" class="social-link bg-gradient-to-br from-blue-600 to-blue-700 text-white p-4 rounded-2xl text-center hover:scale-105">
-                                    <i class="fab fa-linkedin text-2xl mb-2 block"></i>
-                                    <span class="text-sm font-semibold">LinkedIn</span>
+                            <div class="grid grid-cols-2 gap-3 md:gap-4">
+                                <a href="#" class="social-link bg-gradient-to-br from-blue-600 to-blue-700 text-white p-3 md:p-4 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                                    <i class="fab fa-linkedin text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <span class="text-xs md:text-sm font-semibold">LinkedIn</span>
                                 </a>
-                                <a href="#" class="social-link bg-gradient-to-br from-gray-800 to-gray-900 text-white p-4 rounded-2xl text-center hover:scale-105">
-                                    <i class="fab fa-github text-2xl mb-2 block"></i>
-                                    <span class="text-sm font-semibold">GitHub</span>
+                                <a href="#" class="social-link bg-gradient-to-br from-gray-800 to-gray-900 text-white p-3 md:p-4 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                                    <i class="fab fa-github text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <span class="text-xs md:text-sm font-semibold">GitHub</span>
                                 </a>
-                                <a href="#" class="social-link bg-gradient-to-br from-blue-400 to-blue-500 text-white p-4 rounded-2xl text-center hover:scale-105">
-                                    <i class="fab fa-twitter text-2xl mb-2 block"></i>
-                                    <span class="text-sm font-semibold">Twitter</span>
+                                <a href="#" class="social-link bg-gradient-to-br from-blue-400 to-blue-500 text-white p-3 md:p-4 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                                    <i class="fab fa-twitter text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <span class="text-xs md:text-sm font-semibold">Twitter</span>
                                 </a>
-                                <a href="#" class="social-link bg-gradient-to-br from-red-500 to-red-600 text-white p-4 rounded-2xl text-center hover:scale-105">
-                                    <i class="fas fa-envelope text-2xl mb-2 block"></i>
-                                    <span class="text-sm font-semibold">Email</span>
+                                <a href="#" class="social-link bg-gradient-to-br from-red-500 to-red-600 text-white p-3 md:p-4 rounded-2xl text-center hover:scale-105 transition-all duration-300">
+                                    <i class="fas fa-envelope text-lg md:text-2xl mb-1 md:mb-2 block"></i>
+                                    <span class="text-xs md:text-sm font-semibold">Email</span>
                                 </a>
                             </div>
                         </div>

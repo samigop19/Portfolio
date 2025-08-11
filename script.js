@@ -1,43 +1,45 @@
 // Mobile menu toggle with enhanced animation
 document.getElementById('mobile-menu-btn').addEventListener('click', function() {
     const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
     const icon = this.querySelector('i');
     
-    mobileMenu.classList.toggle('open');
+    mobileMenu.style.transform = 'translateX(0)';
+    overlay.classList.add('show');
     
     // Change hamburger icon
-    if (mobileMenu.classList.contains('open')) {
-        icon.className = 'fas fa-times text-white text-xl';
-        document.body.style.overflow = 'hidden';
-    } else {
-        icon.className = 'fas fa-bars text-white text-xl';
-        document.body.style.overflow = 'auto';
-    }
+    icon.className = 'fas fa-times text-lg';
+    document.body.style.overflow = 'hidden';
 });
 
 // Close mobile menu
 document.getElementById('close-mobile-menu').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const icon = mobileMenuBtn.querySelector('i');
-    
-    mobileMenu.classList.remove('open');
-    icon.className = 'fas fa-bars text-white text-xl';
-    document.body.style.overflow = 'auto';
+    closeMobileMenu();
+});
+
+// Close mobile menu when clicking overlay
+document.getElementById('mobile-menu-overlay').addEventListener('click', function() {
+    closeMobileMenu();
 });
 
 // Close mobile menu when clicking on nav links
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const icon = mobileMenuBtn.querySelector('i');
-        
-        mobileMenu.classList.remove('open');
-        icon.className = 'fas fa-bars text-white text-xl';
-        document.body.style.overflow = 'auto';
+        closeMobileMenu();
     });
 });
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const icon = mobileMenuBtn.querySelector('i');
+    
+    mobileMenu.style.transform = 'translateX(-100%)';
+    overlay.classList.remove('show');
+    icon.className = 'fas fa-bars text-lg';
+    document.body.style.overflow = 'auto';
+}
 
 // Enhanced form submission with client-side email functionality
 document.querySelector('form').addEventListener('submit', function(e) {

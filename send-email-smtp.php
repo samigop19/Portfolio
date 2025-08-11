@@ -29,60 +29,71 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// Using EmailJS API to send emails
-$emailjs_data = array(
-    'service_id' => 'your_service_id',
-    'template_id' => 'your_template_id',
-    'user_id' => 'your_user_id',
-    'template_params' => array(
-        'from_name' => $name,
-        'from_email' => $email,
-        'message' => $message,
-        'to_email' => 'samuelbonadoignacio19@gmail.com'
-    )
+// Gmail SMTP configuration
+$smtp_host = 'smtp.gmail.com';
+$smtp_port = 587;
+$smtp_username = getenv('GMAIL_USERNAME') ?: 'ignacioportfolio@gmail.com';
+$smtp_password = getenv('GMAIL_APP_PASSWORD') ?: ''; // Use App Password, not regular password
+$from_email = 'ignacioportfolio@gmail.com';
+$from_name = 'Portfolio Contact Form';
+$to_email = 'ignacioportfolio@gmail.com';
+
+// Create email content
+$subject = "New Contact Form Message from $name";
+$email_body = "
+Name: $name
+Email: $email
+Message:
+$message
+
+---
+This message was sent from your portfolio contact form.
+";
+
+// Headers for email
+$headers = array(
+    'MIME-Version: 1.0',
+    'Content-type: text/plain; charset=UTF-8',
+    "From: $from_name <$from_email>",
+    "Reply-To: $email",
+    "Return-Path: $from_email"
 );
+
+// Try to send email using PHP's mail function with Gmail SMTP
+// Note: This requires proper SMTP configuration on the server
+$mail_sent = false;
+
+// Alternative: Use a more reliable method with proper SMTP authentication
+// For production, consider using PHPMailer or similar library
+if (!empty($smtp_password)) {
+    // Simple SMTP implementation (basic)
+    $mail_sent = mail($to_email, $subject, $email_body, implode("\r\n", $headers));
+}
 
 // Save to local file for backup
 $log_file = 'contact_messages.txt';
 $timestamp = date('Y-m-d H:i:s');
 $log_entry = "
 === NEW MESSAGE ===
-Date: {$timestamp}
-Name: {$name}
-Email: {$email}
-Message: {$message}
+Date: $timestamp
+Name: $name
+Email: $email
+Message: $message
+Mail Sent: " . ($mail_sent ? 'Yes' : 'No') . "
 ==================
 
 ";
 file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
 
-// For local development, we'll use a webhook service
-// You can use services like Formspree, Netlify Forms, or EmailJS
-
-// Try using a simple CURL request to a webhook service
-$webhook_url = "https://formspree.io/f/YOUR_FORM_ID"; // You need to sign up at formspree.io
-
-$curl_data = array(
-    'name' => $name,
-    'email' => $email,
-    'message' => $message
-);
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $webhook_url);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($curl_data));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    'Accept: application/json'
-));
-
-$response = curl_exec($ch);
-$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
-
-echo json_encode([
-    'success' => true,
-    'message' => 'Message saved locally! For actual email delivery, please set up Formspree or similar service.'
-]);
+if ($mail_sent) {
+    echo json_encode([
+        'success' => true,
+        'message' => 'Message sent successfully!'
+    ]);
+} else {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Failed to send email. Please check SMTP configuration.'
+    ]);
+}
 ?>
