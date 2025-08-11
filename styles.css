@@ -17,6 +17,12 @@ html {
     background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
     position: relative;
     overflow: hidden;
+    padding-top: 120px;
+}
+
+/* Navigation spacing fix */
+nav h1 {
+    margin-bottom: 0.5rem;
 }
 
 .hero-bg::before {
@@ -348,10 +354,18 @@ html {
     /* Navigation Mobile Fixes */
     nav {
         padding: 1rem 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     
     nav h1 {
         font-size: 1.5rem;
+        color: #10b981 !important;
+        background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
     /* Floating button responsive */
@@ -459,7 +473,16 @@ html {
     /* Extra small screens */
     .hero-bg {
         min-height: 100vh;
-        padding-top: 6rem;
+        padding-top: 140px;
+    }
+    
+    nav {
+        padding: 0.75rem 0;
+    }
+    
+    nav h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0;
     }
     
     .glass-effect {

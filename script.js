@@ -5,17 +5,19 @@ document.getElementById('floating-menu-btn').addEventListener('click', function(
     const overlay = document.getElementById('mobile-menu-overlay');
     const icon = this.querySelector('i');
     
-    // Open menu
-    sideMenu.classList.add('show');
-    sideMenu.style.transform = 'translateX(0)';
-    overlay.classList.add('show');
-    icon.className = 'fas fa-times text-xl';
-    document.body.style.overflow = 'hidden';
-});
-
-// Close side menu button
-document.getElementById('close-side-menu').addEventListener('click', function() {
-    closeSideMenu();
+    const isOpen = sideMenu.classList.contains('show');
+    
+    if (!isOpen) {
+        // Open menu
+        sideMenu.classList.add('show');
+        sideMenu.style.transform = 'translateX(0)';
+        overlay.classList.add('show');
+        icon.className = 'fas fa-times text-xl';
+        document.body.style.overflow = 'hidden';
+    } else {
+        // Close menu
+        closeSideMenu();
+    }
 });
 
 // Close mobile menu when clicking overlay
@@ -48,11 +50,13 @@ function closeSideMenu() {
     const floatingBtn = document.getElementById('floating-menu-btn');
     const icon = floatingBtn.querySelector('i');
     
-    sideMenu.classList.remove('show');
-    sideMenu.style.transform = 'translateX(-100%)';
-    overlay.classList.remove('show');
-    icon.className = 'fas fa-bars text-xl';
-    document.body.style.overflow = 'auto';
+    if (sideMenu.classList.contains('show')) {
+        sideMenu.classList.remove('show');
+        sideMenu.style.transform = 'translateX(-100%)';
+        overlay.classList.remove('show');
+        icon.className = 'fas fa-bars text-xl';
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // Close mobile menu on escape key
