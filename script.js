@@ -139,26 +139,42 @@ window.addEventListener('scroll', function() {
     });
 
     // Change navigation colors based on current section
+    const nav = document.querySelector('nav');
     if (current === 'home') {
-        // On green home background - use white text
+        // On green home background - use white text and transparent nav
+        nav.style.background = 'rgba(255, 255, 255, 0.1)';
+        nav.style.backdropFilter = 'blur(10px)';
+        nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.2)';
+        
         navLinks.forEach(link => {
             link.classList.remove('text-gray-800', 'hover:text-green-600');
             link.classList.add('text-white', 'hover:text-green-300');
         });
         portfolioText.classList.remove('gradient-text');
         portfolioText.classList.add('text-white');
+        portfolioText.style.background = 'none';
+        portfolioText.style.webkitTextFillColor = 'white';
+        
         if (mobileMenuIcon) {
             mobileMenuIcon.classList.remove('text-gray-800');
             mobileMenuIcon.classList.add('text-white');
         }
     } else {
-        // On other sections - use dark text
+        // On other sections - use dark text and white nav
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.backdropFilter = 'blur(20px)';
+        nav.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
+        
         navLinks.forEach(link => {
             link.classList.remove('text-white', 'hover:text-green-300');
             link.classList.add('text-gray-800', 'hover:text-green-600');
         });
         portfolioText.classList.remove('text-white');
         portfolioText.classList.add('gradient-text');
+        portfolioText.style.background = 'linear-gradient(135deg, #10b981 0%, #065f46 100%)';
+        portfolioText.style.webkitBackgroundClip = 'text';
+        portfolioText.style.webkitTextFillColor = 'transparent';
+        
         if (mobileMenuIcon) {
             mobileMenuIcon.classList.remove('text-white');
             mobileMenuIcon.classList.add('text-gray-800');
