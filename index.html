@@ -14,9 +14,9 @@
 <body class="font-inter bg-gray-50">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full glass-effect backdrop-blur-md z-50">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex justify-between items-center py-3 md:py-4">
-                <h1 class="text-lg md:text-2xl font-poppins font-bold gradient-text">Ignacio's Portfolio</h1>
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-poppins font-bold gradient-text">Ignacio's Portfolio</h1>
                 <!-- Desktop Navigation -->
                 <ul class="hidden md:flex space-x-8">
                     <li><a href="#home" class="text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold hover:scale-105 drop-shadow-sm">Home</a></li>
@@ -26,36 +26,28 @@
                     <li><a href="#contact" class="text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold hover:scale-105 drop-shadow-sm">Contact</a></li>
                 </ul>
                 
-                <!-- Mobile Navigation Menu -->
-                <div id="mobile-menu" class="fixed top-0 left-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-                    <div class="flex flex-col h-full">
-                        <div class="flex justify-between items-center p-4 border-b border-gray-200">
-                            <h2 class="text-lg font-poppins font-bold gradient-text">Navigation</h2>
-                            <button id="close-mobile-menu" class="hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-times text-gray-600 text-lg"></i>
-                            </button>
-                        </div>
-                        <nav class="flex-1 py-4">
-                            <ul class="space-y-2">
-                                <li><a href="#home" class="mobile-nav-link">Home</a></li>
-                                <li><a href="#about" class="mobile-nav-link">About</a></li>
-                                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
-                                <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
-                                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                
-                <!-- Mobile Menu Overlay -->
-                <div id="mobile-menu-overlay" class="fixed inset-0 z-40 md:hidden"></div>
-                
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden transition-transform duration-300" id="mobile-menu-btn">
-                    <i class="fas fa-bars text-lg"></i>
+                <button class="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-gray-800 text-xl"></i>
                 </button>
             </div>
         </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 shadow-lg transform translate-y-[-100%] transition-transform duration-300 ease-in-out">
+            <nav class="py-4">
+                <ul class="space-y-1">
+                    <li><a href="#home" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Home</a></li>
+                    <li><a href="#about" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">About</a></li>
+                    <li><a href="#skills" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Skills</a></li>
+                    <li><a href="#certifications" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Certifications</a></li>
+                    <li><a href="#contact" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300 md:hidden"></div>
     </nav>
 
     <!-- Hero Section -->
