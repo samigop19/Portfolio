@@ -347,8 +347,17 @@ nav h1 {
     
     /* Hero Section Mobile Adjustments */
     .hero-bg {
-        padding-top: 5rem;
+        padding-top: 100px;
+        padding-bottom: 3rem;
+        min-height: 100vh;
+    }
+    
+    .hero-bg .container {
         padding-bottom: 2rem;
+    }
+    
+    .hero-bg .btn-primary {
+        margin-bottom: 2rem;
     }
     
     /* Navigation Mobile Fixes */
@@ -639,13 +648,17 @@ footer .social-links {
 @media (max-width: 768px) and (orientation: landscape) {
     .hero-bg {
         min-height: 100vh;
-        padding-top: 4rem;
-        padding-bottom: 1rem;
+        padding-top: 120px;
+        padding-bottom: 2rem;
     }
     
     .hero-bg img {
         width: 100px;
         height: 100px;
+    }
+    
+    .hero-bg .btn-primary {
+        margin-bottom: 2rem;
     }
     
     .glass-effect {
