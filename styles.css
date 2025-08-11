@@ -276,38 +276,56 @@ html {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobile Navigation Styles */
-#mobile-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 40;
+/* Floating Mobile Menu Button */
+#floating-menu-btn {
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+    backdrop-filter: blur(10px);
 }
 
-#mobile-menu.show {
-    transform: translateY(0);
+#floating-menu-btn:hover {
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
 }
 
-.mobile-nav-link {
-    font-weight: 500;
+/* Mobile Side Navigation */
+#mobile-side-menu {
+    backdrop-filter: blur(20px);
+}
+
+#mobile-side-menu.show {
+    transform: translateX(0);
+}
+
+.mobile-side-link {
     text-decoration: none;
+    position: relative;
+}
+
+.mobile-side-link:hover {
+    transform: translateX(5px);
 }
 
 /* Mobile Menu Overlay */
-#mobile-menu-overlay {
-    z-index: 35;
-}
-
 #mobile-menu-overlay.show {
     opacity: 1;
     visibility: visible;
 }
 
-/* Mobile Menu Button */
-#mobile-menu-btn {
-    position: relative;
-    z-index: 50;
+/* Animation for floating button */
+@keyframes float-button {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#floating-menu-btn {
+    animation: float-button 3s ease-in-out infinite;
+}
+
+#floating-menu-btn:hover {
+    animation: none;
 }
 
 /* Responsive Design Enhancements */
@@ -336,8 +354,18 @@ html {
         font-size: 1.5rem;
     }
     
-    #mobile-menu-btn {
-        padding: 0.5rem;
+    /* Floating button responsive */
+    #floating-menu-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Side menu responsive */
+    #mobile-side-menu {
+        width: 100vw;
+        max-width: 300px;
     }
     
     /* About Section Mobile */
@@ -453,14 +481,17 @@ html {
         font-size: 0.9rem;
     }
     
-    /* Mobile Navigation Button */
-    #mobile-menu-btn {
-        padding: 0.75rem;
-        min-width: 44px;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    /* Extra small screen adjustments for floating button */
+    #floating-menu-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 56px;
+        height: 56px;
+    }
+    
+    #mobile-side-menu {
+        width: 100vw;
+        max-width: 280px;
     }
 }
 

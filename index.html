@@ -25,33 +25,75 @@
                     <li><a href="#certifications" class="text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold hover:scale-105 drop-shadow-sm">Certifications</a></li>
                     <li><a href="#contact" class="text-gray-800 hover:text-green-600 transition-all duration-300 font-semibold hover:scale-105 drop-shadow-sm">Contact</a></li>
                 </ul>
-                
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200" id="mobile-menu-btn">
-                    <i class="fas fa-bars text-gray-800 text-xl"></i>
-                </button>
             </div>
         </div>
-        
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 shadow-lg transform translate-y-[-100%] transition-transform duration-300 ease-in-out">
-            <nav class="py-4">
-                <ul class="space-y-1">
-                    <li><a href="#home" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Home</a></li>
-                    <li><a href="#about" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">About</a></li>
-                    <li><a href="#skills" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Skills</a></li>
-                    <li><a href="#certifications" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Certifications</a></li>
-                    <li><a href="#contact" class="mobile-nav-link block px-6 py-3 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Contact</a></li>
-                </ul>
-            </nav>
+    </nav>
+    
+    <!-- Floating Mobile Menu Button -->
+    <button id="floating-menu-btn" class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-full shadow-2xl z-50 md:hidden flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-3xl">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+    
+    <!-- Mobile Side Navigation -->
+    <div id="mobile-side-menu" class="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <!-- Menu Header -->
+        <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-green-500 to-emerald-600">
+            <h2 class="text-xl font-poppins font-bold text-white">Navigation</h2>
+            <button id="close-side-menu" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-200">
+                <i class="fas fa-times text-white text-lg"></i>
+            </button>
         </div>
         
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300 md:hidden"></div>
-    </nav>
+        <!-- Menu Items -->
+        <nav class="py-6">
+            <ul class="space-y-2">
+                <li>
+                    <a href="#home" class="mobile-side-link flex items-center px-6 py-4 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 border-l-4 border-transparent hover:border-green-500">
+                        <i class="fas fa-home mr-4 text-lg"></i>
+                        <span class="font-medium">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#about" class="mobile-side-link flex items-center px-6 py-4 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 border-l-4 border-transparent hover:border-green-500">
+                        <i class="fas fa-user mr-4 text-lg"></i>
+                        <span class="font-medium">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills" class="mobile-side-link flex items-center px-6 py-4 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 border-l-4 border-transparent hover:border-green-500">
+                        <i class="fas fa-code mr-4 text-lg"></i>
+                        <span class="font-medium">Skills</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#certifications" class="mobile-side-link flex items-center px-6 py-4 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 border-l-4 border-transparent hover:border-green-500">
+                        <i class="fas fa-certificate mr-4 text-lg"></i>
+                        <span class="font-medium">Certifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="mobile-side-link flex items-center px-6 py-4 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 border-l-4 border-transparent hover:border-green-500">
+                        <i class="fas fa-envelope mr-4 text-lg"></i>
+                        <span class="font-medium">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Menu Footer -->
+        <div class="absolute bottom-6 left-6 right-6">
+            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <p class="text-sm text-gray-600">Ignacio's Portfolio</p>
+                <p class="text-xs text-gray-400 mt-1">© 2024 All rights reserved</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 invisible transition-all duration-300 md:hidden"></div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-24 md:pt-20">
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-20 md:pt-0">
         <div class="container mx-auto px-6 text-center relative z-10">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8">

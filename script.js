@@ -1,64 +1,64 @@
-// Mobile menu toggle with dropdown animation
-document.getElementById('mobile-menu-btn').addEventListener('click', function(e) {
+// Floating mobile menu toggle
+document.getElementById('floating-menu-btn').addEventListener('click', function(e) {
     e.stopPropagation();
-    const mobileMenu = document.getElementById('mobile-menu');
+    const sideMenu = document.getElementById('mobile-side-menu');
     const overlay = document.getElementById('mobile-menu-overlay');
     const icon = this.querySelector('i');
     
-    const isOpen = mobileMenu.classList.contains('show');
-    
-    if (!isOpen) {
-        // Open menu
-        mobileMenu.classList.add('show');
-        mobileMenu.style.transform = 'translateY(0)';
-        overlay.classList.add('show');
-        icon.className = 'fas fa-times text-gray-800 text-xl';
-        document.body.style.overflow = 'hidden';
-    } else {
-        // Close menu
-        closeMobileMenu();
-    }
+    // Open menu
+    sideMenu.classList.add('show');
+    sideMenu.style.transform = 'translateX(0)';
+    overlay.classList.add('show');
+    icon.className = 'fas fa-times text-xl';
+    document.body.style.overflow = 'hidden';
+});
+
+// Close side menu button
+document.getElementById('close-side-menu').addEventListener('click', function() {
+    closeSideMenu();
 });
 
 // Close mobile menu when clicking overlay
 document.getElementById('mobile-menu-overlay').addEventListener('click', function() {
-    closeMobileMenu();
+    closeSideMenu();
 });
 
 // Close mobile menu when clicking on nav links
-document.querySelectorAll('.mobile-nav-link').forEach(link => {
+document.querySelectorAll('.mobile-side-link').forEach(link => {
     link.addEventListener('click', function() {
-        closeMobileMenu();
+        closeSideMenu();
     });
 });
 
-// Close mobile menu when clicking anywhere on the page
+// Close mobile menu when clicking anywhere outside
 document.addEventListener('click', function(e) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const sideMenu = document.getElementById('mobile-side-menu');
+    const floatingBtn = document.getElementById('floating-menu-btn');
     
-    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        closeMobileMenu();
+    if (!sideMenu.contains(e.target) && !floatingBtn.contains(e.target)) {
+        if (sideMenu.classList.contains('show')) {
+            closeSideMenu();
+        }
     }
 });
 
-function closeMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
+function closeSideMenu() {
+    const sideMenu = document.getElementById('mobile-side-menu');
     const overlay = document.getElementById('mobile-menu-overlay');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const icon = mobileMenuBtn.querySelector('i');
+    const floatingBtn = document.getElementById('floating-menu-btn');
+    const icon = floatingBtn.querySelector('i');
     
-    mobileMenu.classList.remove('show');
-    mobileMenu.style.transform = 'translateY(-100%)';
+    sideMenu.classList.remove('show');
+    sideMenu.style.transform = 'translateX(-100%)';
     overlay.classList.remove('show');
-    icon.className = 'fas fa-bars text-gray-800 text-xl';
+    icon.className = 'fas fa-bars text-xl';
     document.body.style.overflow = 'auto';
 }
 
 // Close mobile menu on escape key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-        closeMobileMenu();
+        closeSideMenu();
     }
 });
 
