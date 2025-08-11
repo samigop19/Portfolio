@@ -1,67 +1,82 @@
 // Mobile menu toggle with enhanced animation
 document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-    const nav = document.querySelector('nav ul');
+    const mobileMenu = document.getElementById('mobile-menu');
     const icon = this.querySelector('i');
     
-    nav.classList.toggle('hidden');
+    mobileMenu.classList.toggle('open');
     
-    // Rotate hamburger icon
-    if (nav.classList.contains('hidden')) {
-        icon.className = 'fas fa-bars text-gray-700 text-xl';
+    // Change hamburger icon
+    if (mobileMenu.classList.contains('open')) {
+        icon.className = 'fas fa-times text-white text-xl';
+        document.body.style.overflow = 'hidden';
     } else {
-        icon.className = 'fas fa-times text-gray-700 text-xl';
+        icon.className = 'fas fa-bars text-white text-xl';
+        document.body.style.overflow = 'auto';
     }
 });
 
-// Enhanced form submission with email functionality
-document.querySelector('form').addEventListener('submit', async function(e) {
+// Close mobile menu
+document.getElementById('close-mobile-menu').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const icon = mobileMenuBtn.querySelector('i');
+    
+    mobileMenu.classList.remove('open');
+    icon.className = 'fas fa-bars text-white text-xl';
+    document.body.style.overflow = 'auto';
+});
+
+// Close mobile menu when clicking on nav links
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const icon = mobileMenuBtn.querySelector('i');
+        
+        mobileMenu.classList.remove('open');
+        icon.className = 'fas fa-bars text-white text-xl';
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Enhanced form submission with client-side email functionality
+document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const submitBtn = this.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     const formData = new FormData(this);
     
+    // Get form data
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
     // Show loading state
-    submitBtn.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i>Sending...';
+    submitBtn.innerHTML = '<i class="fas fa-spinner animate-spin mr-2"></i>Opening Email...';
     submitBtn.disabled = true;
     
-    try {
-        const response = await fetch('send-email.php', {
-            method: 'POST',
-            body: formData
-        });
+    // Create mailto link
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:samuelbonadoignacio19@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Email Opened!';
+        submitBtn.className = submitBtn.className.replace('btn-primary', 'bg-green-600 hover:bg-green-700');
         
-        const result = await response.json();
-        
-        if (result.success) {
-            // Show success message
-            submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
-            submitBtn.className = submitBtn.className.replace('btn-primary', 'bg-green-600 hover:bg-green-700');
-            
-            // Reset form after 3 seconds
-            setTimeout(() => {
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.className = submitBtn.className.replace('bg-green-600 hover:bg-green-700', 'btn-primary');
-                submitBtn.disabled = false;
-            }, 3000);
-        } else {
-            throw new Error(result.message || 'Failed to send message');
-        }
-    } catch (error) {
-        console.error('Error sending email:', error);
-        
-        // Show error message
-        submitBtn.innerHTML = '<i class="fas fa-times mr-2"></i>Failed to Send';
-        submitBtn.className = submitBtn.className.replace('btn-primary', 'bg-red-600 hover:bg-red-700');
-        
-        // Reset after 3 seconds
+        // Reset form after 3 seconds
         setTimeout(() => {
+            this.reset();
             submitBtn.innerHTML = originalText;
-            submitBtn.className = submitBtn.className.replace('bg-red-600 hover:bg-red-700', 'btn-primary');
+            submitBtn.className = submitBtn.className.replace('bg-green-600 hover:bg-green-700', 'btn-primary');
             submitBtn.disabled = false;
         }, 3000);
-    }
+    }, 500);
 });
 
 // Smooth scrolling for navigation links with offset for fixed nav

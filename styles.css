@@ -276,6 +276,26 @@ html {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Mobile Navigation Styles */
+#mobile-menu {
+    z-index: 9999;
+}
+
+#mobile-menu.open {
+    transform: translateX(0);
+}
+
+.mobile-nav-link:hover {
+    transform: translateX(10px);
+    color: #10b981;
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
 /* Responsive Design Enhancements */
 @media (max-width: 768px) {
     .animate-slide-left,
@@ -285,6 +305,182 @@ html {
     
     .animate-rotate {
         animation: none;
+    }
+    
+    /* Hero Section Mobile Adjustments */
+    .hero-bg {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Navigation Mobile Fixes */
+    nav {
+        padding: 0.5rem 0;
+    }
+    
+    nav .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* About Section Mobile */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Skills Section Mobile */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Certifications Mobile */
+    .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Contact Section Mobile */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Footer Mobile */
+    footer {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    
+    footer .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    /* Mobile Typography */
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Mobile Spacing */
+    section {
+        padding: 3rem 0;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Mobile Cards */
+    .hover-lift:hover {
+        transform: none;
+    }
+    
+    .cert-card:hover {
+        transform: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Mobile Forms */
+    .form-input:focus {
+        transform: none;
+    }
+    
+    /* Mobile Button Adjustments */
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Mobile Text Adjustments */
+    .glass-effect .flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .glass-effect .hidden.md\\:block {
+        display: none !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Extra small screens */
+    .hero-bg {
+        min-height: 100vh;
+        padding-top: 6rem;
+    }
+    
+    .glass-effect {
+        margin: 0 0.5rem;
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .btn-primary {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile Navigation Button */
+    #mobile-menu-btn {
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Footer Responsive Styles */
+footer {
+    padding: 3rem 1rem 2rem;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 2rem 0.5rem 1.5rem;
+    }
+    
+    footer h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    footer p {
+        font-size: 0.9rem;
+    }
+    
+    footer .social-links {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-link {
+        padding: 0.75rem;
+        font-size: 0.9rem;
     }
 }
 
